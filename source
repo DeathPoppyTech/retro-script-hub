@@ -3,209 +3,270 @@
 
 -- Instances:
 
-local ScreenGui = Instance.new("ScreenGui")
-local Main = Instance.new("Frame")
+local RetroHubUniversal = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
 local TextLabel = Instance.new("TextLabel")
-local infiniteyield = Instance.new("TextButton")
-local fly = Instance.new("TextButton")
-local Hitbox = Instance.new("TextButton")
-local TPTOOL = Instance.new("TextButton")
-local HatsV2 = Instance.new("TextButton")
-local HohoHub = Instance.new("TextButton")
-local Dex = Instance.new("TextButton")
-local RedzHub = Instance.new("TextButton")
-local UNCTest = Instance.new("TextButton")
-local UserIDSpoof = Instance.new("TextButton")
-local MSHUB = Instance.new("TextButton")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+local iy = Instance.new("TextButton")
+local gamepass = Instance.new("TextButton")
+local dex = Instance.new("TextButton")
+local asset_theft = Instance.new("TextButton")
+local unc = Instance.new("TextButton")
+local spoofuuid = Instance.new("TextButton")
+local hats = Instance.new("TextButton")
+local hitbox_ext = Instance.new("TextButton")
+local hash_hub = Instance.new("TextButton")
+local backdoorexe = Instance.new("TextButton")
+local TrollGUI = Instance.new("TextButton")
+local fullbright = Instance.new("TextButton")
 
 --Properties:
 
-ScreenGui.Parent = game.Workspace
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+RetroHubUniversal.Name = "RetroHubUniversal"
+RetroHubUniversal.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+RetroHubUniversal.ResetOnSpawn = false
 
-Main.Name = "Main"
-Main.Parent = ScreenGui
-Main.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
-Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Main.BorderSizePixel = 0
-Main.Position = UDim2.new(0.171494782, 0, 0.200000003, 0)
-Main.Size = UDim2.new(0, 373, 0, 326)
-Main.Active = true
-Main.Draggable = true
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = RetroHubUniversal
+MainFrame.BackgroundColor3 = Color3.fromRGB(64, 78, 79)
+MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MainFrame.BorderSizePixel = 0
+MainFrame.Position = UDim2.new(0.3963494, 0, 0.16930382, 0)
+MainFrame.Size = UDim2.new(0, 453, 0, 497)
+MainFrame.Active = true
+MainFrame.Draggable = true
 
-TextLabel.Parent = Main
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+UICorner.Parent = MainFrame
+
+TextLabel.Parent = MainFrame
+TextLabel.Active = true
+TextLabel.BackgroundColor3 = Color3.fromRGB(187, 78, 255)
 TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.BorderSizePixel = 0
-TextLabel.Position = UDim2.new(-4.0908283e-08, 0, 0, 0)
-TextLabel.Size = UDim2.new(0, 373, 0, 26)
-TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "RETRO"
+TextLabel.Selectable = true
+TextLabel.Size = UDim2.new(0, 453, 0, 20)
+TextLabel.Font = Enum.Font.Michroma
+TextLabel.Text = "Retro Script Hub - Revamp 1, Season 1"
 TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.TextSize = 14.000
 
-infiniteyield.Name = "infiniteyield"
-infiniteyield.Parent = Main
-infiniteyield.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-infiniteyield.BorderColor3 = Color3.fromRGB(0, 0, 0)
-infiniteyield.BorderSizePixel = 0
-infiniteyield.Position = UDim2.new(0, 0, 0.112149529, 0)
-infiniteyield.Size = UDim2.new(0, 90, 0, 32)
-infiniteyield.Font = Enum.Font.SourceSans
-infiniteyield.Text = "IY"
-infiniteyield.TextColor3 = Color3.fromRGB(0, 0, 0)
-infiniteyield.TextSize = 14.000
-infiniteyield.MouseButton1Down:connect(function()
-	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+TextLabel_2.Parent = MainFrame
+TextLabel_2.Active = true
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(187, 78, 255)
+TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0, 0, 0.0402414501, 0)
+TextLabel_2.Selectable = true
+TextLabel_2.Size = UDim2.new(0, 453, 0, 20)
+TextLabel_2.Font = Enum.Font.Michroma
+TextLabel_2.Text = "This script will be moved to a UI library next update. -Made by BiU Team"
+TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.TextSize = 14.000
+
+TextLabel_3.Parent = MainFrame
+TextLabel_3.Active = true
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(187, 78, 255)
+TextLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.BorderSizePixel = 0
+TextLabel_3.Position = UDim2.new(0, 0, 0.95975858, 0)
+TextLabel_3.Selectable = true
+TextLabel_3.Size = UDim2.new(0, 453, 0, 20)
+TextLabel_3.Font = Enum.Font.Michroma
+TextLabel_3.Text = "Never attempt to bypass our key."
+TextLabel_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.TextSize = 14.000
+
+iy.Name = "iy"
+iy.Parent = MainFrame
+iy.BackgroundColor3 = Color3.fromRGB(170, 85, 0)
+iy.BorderColor3 = Color3.fromRGB(0, 0, 0)
+iy.BorderSizePixel = 0
+iy.Position = UDim2.new(-0.00123916194, 0, 0.117066287, 0)
+iy.Size = UDim2.new(0, 82, 0, 50)
+iy.Font = Enum.Font.Code
+iy.Text = "Inf Yield"
+iy.TextColor3 = Color3.fromRGB(0, 0, 0)
+iy.TextSize = 14.000
+iy.MouseButton1Down:Connect(function()
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
 end)
 
-fly.Name = "fly"
-fly.Parent = Main
-fly.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-fly.BorderColor3 = Color3.fromRGB(0, 0, 0)
-fly.BorderSizePixel = 0
-fly.Position = UDim2.new(0.286863267, 0, 0.112149529, 0)
-fly.Size = UDim2.new(0, 94, 0, 32)
-fly.Font = Enum.Font.SourceSans
-fly.Text = "Fly"
-fly.TextColor3 = Color3.fromRGB(0, 0, 0)
-fly.TextSize = 14.000
-fly.MouseButton1Down:connect(function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+gamepass.Name = "gamepass"
+gamepass.Parent = MainFrame
+gamepass.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+gamepass.BorderColor3 = Color3.fromRGB(0, 0, 0)
+gamepass.BorderSizePixel = 0
+gamepass.Position = UDim2.new(0.230548918, 0, 0.117066287, 0)
+gamepass.Size = UDim2.new(0, 82, 0, 50)
+gamepass.Font = Enum.Font.Code
+gamepass.Text = "Gamepass GUI"
+gamepass.TextColor3 = Color3.fromRGB(0, 0, 0)
+gamepass.TextSize = 14.000
+gamepass.MouseButton1Down:Connect(function()
+	--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+	loadstring(game:HttpGet("https://gist.githubusercontent.com/dark-modz/6982de484735e730494b2d5a10fd6a2a/raw/a92563b0cd6a63683341a09f54baccea5349ed69/feGamepassV2",true))()
 end)
 
-Hitbox.Name = "Hitbox"
-Hitbox.Parent = Main
-Hitbox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Hitbox.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Hitbox.BorderSizePixel = 0
-Hitbox.Position = UDim2.new(0.573726535, 0, 0.124610595, 0)
-Hitbox.Size = UDim2.new(0, 159, 0, 28)
-Hitbox.Font = Enum.Font.SourceSans
-Hitbox.Text = "HitBoxes"
-Hitbox.TextColor3 = Color3.fromRGB(0, 0, 0)
-Hitbox.TextSize = 14.000
-Hitbox.MouseButton1Down:connect(function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/RectangularObject/Roblox-Hitbox-Expander/main/HitboxExtenderv2.lua",true))()
+dex.Name = "dex"
+dex.Parent = MainFrame
+dex.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
+dex.BorderColor3 = Color3.fromRGB(0, 0, 0)
+dex.BorderSizePixel = 0
+dex.Position = UDim2.new(0.486619562, 0, 0.117066287, 0)
+dex.Size = UDim2.new(0, 82, 0, 50)
+dex.Font = Enum.Font.Code
+dex.Text = "Dex Explorer"
+dex.TextColor3 = Color3.fromRGB(0, 0, 0)
+dex.TextSize = 14.000
+dex.MouseButton1Down:Connect(function()
+	--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/DEX-Explorer/main/Mobile.lua"))()
 end)
 
-TPTOOL.Name = "TPTOOL"
-TPTOOL.Parent = Main
-TPTOOL.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TPTOOL.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TPTOOL.BorderSizePixel = 0
-TPTOOL.Position = UDim2.new(0.00268096523, 0, 0.277258575, 0)
-TPTOOL.Size = UDim2.new(0, 96, 0, 50)
-TPTOOL.Font = Enum.Font.SourceSans
-TPTOOL.Text = "TPTool"
-TPTOOL.TextColor3 = Color3.fromRGB(0, 0, 0)
-TPTOOL.TextSize = 14.000
-TPTOOL.MouseButton1Down:connect(function()
-	loadstring(game:HttpGet("https://pastebin.com/raw/RXdkiui5",true))()
+asset_theft.Name = "asset_theft"
+asset_theft.Parent = MainFrame
+asset_theft.BackgroundColor3 = Color3.fromRGB(170, 255, 0)
+asset_theft.BorderColor3 = Color3.fromRGB(0, 0, 0)
+asset_theft.BorderSizePixel = 0
+asset_theft.Position = UDim2.new(0.75814271, 0, 0.117066287, 0)
+asset_theft.Size = UDim2.new(0, 82, 0, 50)
+asset_theft.Font = Enum.Font.Code
+asset_theft.Text = "Save Instance"
+asset_theft.TextColor3 = Color3.fromRGB(0, 0, 0)
+asset_theft.TextSize = 14.000
+asset_theft.MouseButton1Down:Connect(function()
+	--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+	local Params = {
+		RepoURL = "https://raw.githubusercontent.com/luau/SynSaveInstance/main/",
+		SSI = "saveinstance",
+	}
+	local synsaveinstance = loadstring(game:HttpGet(Params.RepoURL .. Params.SSI .. ".luau", true), Params.SSI)()
+	local Options = {} -- Documentation here https://luau.github.io/UniversalSynSaveInstance/api/SynSaveInstance
+	synsaveinstance(Options)
 end)
 
-HatsV2.Name = "HatsV2"
-HatsV2.Parent = Main
-HatsV2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-HatsV2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-HatsV2.BorderSizePixel = 0
-HatsV2.Position = UDim2.new(0.286863267, 0, 0.277258575, 0)
-HatsV2.Size = UDim2.new(0, 94, 0, 50)
-HatsV2.Font = Enum.Font.SourceSans
-HatsV2.Text = "Hats V2"
-HatsV2.TextColor3 = Color3.fromRGB(0, 0, 0)
-HatsV2.TextSize = 14.000
-HatsV2.MouseButton1Down:connect(function()
-	loadstring(game:HttpGet("https://pastebin.com/raw/06vnLpww"))()
+unc.Name = "unc"
+unc.Parent = MainFrame
+unc.BackgroundColor3 = Color3.fromRGB(85, 0, 127)
+unc.BorderColor3 = Color3.fromRGB(0, 0, 0)
+unc.BorderSizePixel = 0
+unc.Position = UDim2.new(-0.00123916194, 0, 0.274007946, 0)
+unc.Size = UDim2.new(0, 82, 0, 50)
+unc.AutoButtonColor = false
+unc.Font = Enum.Font.Code
+unc.Text = "UNC Tester"
+unc.TextColor3 = Color3.fromRGB(0, 0, 0)
+unc.TextSize = 14.000
+unc.MouseButton1Down:Connect(function()
+	loadstring(game:HttpGet(('https://rawscripts.net/raw/Universal-Script-UNC-Test-13114'),true))()
 end)
 
-HohoHub.Name = "HohoHub"
-HohoHub.Parent = Main
-HohoHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-HohoHub.BorderColor3 = Color3.fromRGB(0, 0, 0)
-HohoHub.BorderSizePixel = 0
-HohoHub.Position = UDim2.new(0.573726535, 0, 0.286795497, 0)
-HohoHub.Size = UDim2.new(0, 159, 0, 46)
-HohoHub.Font = Enum.Font.SourceSans
-HohoHub.Text = "HOHO HUB (Key)"
-HohoHub.TextColor3 = Color3.fromRGB(0, 0, 0)
-HohoHub.TextSize = 14.000
-HohoHub.MouseButton1Down:connect(function()
-	_G.HohoVersion = "v3"
-	loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))() 
+spoofuuid.Name = "spoofuuid"
+spoofuuid.Parent = MainFrame
+spoofuuid.BackgroundColor3 = Color3.fromRGB(255, 0, 127)
+spoofuuid.BorderColor3 = Color3.fromRGB(0, 0, 0)
+spoofuuid.BorderSizePixel = 0
+spoofuuid.Position = UDim2.new(0.230548918, 0, 0.274007946, 0)
+spoofuuid.Size = UDim2.new(0, 82, 0, 50)
+spoofuuid.Font = Enum.Font.Code
+spoofuuid.Text = "UserID Spoof"
+spoofuuid.TextColor3 = Color3.fromRGB(0, 0, 0)
+spoofuuid.TextSize = 14.000
+spoofuuid.MouseButton1Down:Connect(function()
+	game.Players.LocalPlayer.UserId = "1"
 end)
 
-Dex.Name = "Dex"
-Dex.Parent = Main
-Dex.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Dex.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Dex.BorderSizePixel = 0
-Dex.Position = UDim2.new(0, 0, 0.467289716, 0)
-Dex.Size = UDim2.new(0, 97, 0, 50)
-Dex.Font = Enum.Font.SourceSans
-Dex.Text = "Dex"
-Dex.TextColor3 = Color3.fromRGB(0, 0, 0)
-Dex.TextSize = 14.000
-Dex.MouseButton1Down:connect(function()
-	loadstring(game:GetObjects("rbxassetid://418957341")[1].Source)()
+hats.Name = "later"
+hats.Parent = MainFrame
+hats.BackgroundColor3 = Color3.fromRGB(255, 194, 140)
+hats.BorderColor3 = Color3.fromRGB(0, 0, 0)
+hats.BorderSizePixel = 0
+hats.Position = UDim2.new(0.486619562, 0, 0.274007946, 0)
+hats.Size = UDim2.new(0, 82, 0, 50)
+hats.Font = Enum.Font.Code
+hats.Text = "Coming Soon!"
+hats.TextColor3 = Color3.fromRGB(0, 0, 0)
+hats.TextSize = 14.000
+
+hitbox_ext.Name = "hitbox_ext"
+hitbox_ext.Parent = MainFrame
+hitbox_ext.BackgroundColor3 = Color3.fromRGB(255, 24, 124)
+hitbox_ext.BorderColor3 = Color3.fromRGB(0, 0, 0)
+hitbox_ext.BorderSizePixel = 0
+hitbox_ext.Position = UDim2.new(-0.00123916194, 0, 0.434973747, 0)
+hitbox_ext.Size = UDim2.new(0, 82, 0, 50)
+hitbox_ext.Font = Enum.Font.Code
+hitbox_ext.Text = "Hitbox Mods"
+hitbox_ext.TextColor3 = Color3.fromRGB(0, 0, 0)
+hitbox_ext.TextSize = 14.000
+hitbox_ext.MouseButton1Down:Connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SkepticalScripts/HitboxExpander/main/SScripts.lua.txt"))()
 end)
 
-RedzHub.Name = "RedzHub"
-RedzHub.Parent = Main
-RedzHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-RedzHub.BorderColor3 = Color3.fromRGB(0, 0, 0)
-RedzHub.BorderSizePixel = 0
-RedzHub.Position = UDim2.new(0.286863267, 0, 0.467289716, 0)
-RedzHub.Size = UDim2.new(0, 130, 0, 50)
-RedzHub.Font = Enum.Font.SourceSans
-RedzHub.Text = "REDz Hub (BLOX FRUITS)"
-RedzHub.TextColor3 = Color3.fromRGB(0, 0, 0)
-RedzHub.TextSize = 14.000
-RedzHub.MouseButton1Down:connect(function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999"))()
+hash_hub.Name = "hash_hub"
+hash_hub.Parent = MainFrame
+hash_hub.BackgroundColor3 = Color3.fromRGB(255, 24, 124)
+hash_hub.BorderColor3 = Color3.fromRGB(0, 0, 0)
+hash_hub.BorderSizePixel = 0
+hash_hub.Position = UDim2.new(0.230548918, 0, 0.434973747, 0)
+hash_hub.Size = UDim2.new(0, 82, 0, 50)
+hash_hub.Font = Enum.Font.Code
+hash_hub.Text = "Hash Hub"
+hash_hub.TextColor3 = Color3.fromRGB(0, 0, 0)
+hash_hub.TextSize = 14.000
+hash_hub.MouseButton1Down:Connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/i98vcR5s",true))()
 end)
 
-UNCTest.Name = "UNCTest"
-UNCTest.Parent = Main
-UNCTest.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-UNCTest.BorderColor3 = Color3.fromRGB(0, 0, 0)
-UNCTest.BorderSizePixel = 0
-UNCTest.Position = UDim2.new(0.659517407, 0, 0.467289716, 0)
-UNCTest.Size = UDim2.new(0, 127, 0, 50)
-UNCTest.Font = Enum.Font.SourceSans
-UNCTest.Text = "UNC Test"
-UNCTest.TextColor3 = Color3.fromRGB(0, 0, 0)
-UNCTest.TextSize = 14.000
-UNCTest.MouseButton1Down:connect(function()
-	loadstring(game:HttpGet('https://pastebin.com/raw/eRkJSVvE'))()
+backdoorexe.Name = "backdoor.exe"
+backdoorexe.Parent = MainFrame
+backdoorexe.BackgroundColor3 = Color3.fromRGB(255, 24, 124)
+backdoorexe.BorderColor3 = Color3.fromRGB(0, 0, 0)
+backdoorexe.BorderSizePixel = 0
+backdoorexe.Position = UDim2.new(0.486619562, 0, 0.434973747, 0)
+backdoorexe.Size = UDim2.new(0, 82, 0, 50)
+backdoorexe.Font = Enum.Font.Code
+backdoorexe.Text = "Backdoor.EXE"
+backdoorexe.TextColor3 = Color3.fromRGB(0, 0, 0)
+backdoorexe.TextSize = 14.000
+backdoorexe.MouseButton1Down:Connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/6vHUmanz",true))()
 end)
 
-UserIDSpoof.Name = "UserIDSpoof"
-UserIDSpoof.Parent = Main
-UserIDSpoof.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-UserIDSpoof.BorderColor3 = Color3.fromRGB(0, 0, 0)
-UserIDSpoof.BorderSizePixel = 0
-UserIDSpoof.Position = UDim2.new(0, 0, 0.644859791, 0)
-UserIDSpoof.Size = UDim2.new(0, 373, 0, 50)
-UserIDSpoof.Font = Enum.Font.SourceSans
-UserIDSpoof.Text = "UserID Spoofer (changes your ID to creator ID)"
-UserIDSpoof.TextColor3 = Color3.fromRGB(0, 0, 0)
-UserIDSpoof.TextSize = 14.000
-UserIDSpoof.MouseButton1Down:connect(function()
-	loadstring(game:HttpGet("https://pastebin.com/raw/i2bS9Hvq"))()
+TrollGUI.Name = "TrollGUI"
+TrollGUI.Parent = MainFrame
+TrollGUI.BackgroundColor3 = Color3.fromRGB(255, 24, 124)
+TrollGUI.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TrollGUI.BorderSizePixel = 0
+TrollGUI.Position = UDim2.new(0.75814271, 0, 0.434973747, 0)
+TrollGUI.Size = UDim2.new(0, 82, 0, 50)
+TrollGUI.Font = Enum.Font.Code
+TrollGUI.Text = "Troll GUI"
+TrollGUI.TextColor3 = Color3.fromRGB(0, 0, 0)
+TrollGUI.TextSize = 14.000
+TrollGUI.MouseButton1Down:Connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/VYZhLv7w",true))()
 end)
 
-MSHUB.Name = "MSHUB"
-MSHUB.Parent = Main
-MSHUB.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-MSHUB.BorderColor3 = Color3.fromRGB(0, 0, 0)
-MSHUB.BorderSizePixel = 0
-MSHUB.Position = UDim2.new(0.00268096523, 0, 0.844236732, 0)
-MSHUB.Size = UDim2.new(0, 372, 0, 50)
-MSHUB.Font = Enum.Font.SourceSans
-MSHUB.Text = "MSHUB"
-MSHUB.TextColor3 = Color3.fromRGB(0, 0, 0)
-MSHUB.TextSize = 14.000
-MSHUB.MouseButton1Down:connect(function()
-	loadstring(game:HttpGet(("https://raw.githubusercontent.com/mstudio45/MSDOORS/main/MSHUB_Loader.lua"),true))()
+fullbright.Name = "fullbright"
+fullbright.Parent = MainFrame
+fullbright.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+fullbright.BorderColor3 = Color3.fromRGB(0, 0, 0)
+fullbright.BorderSizePixel = 0
+fullbright.Position = UDim2.new(0.75814271, 0, 0.274007946, 0)
+fullbright.Size = UDim2.new(0, 82, 0, 50)
+fullbright.Font = Enum.Font.Code
+fullbright.Text = "Fullbright"
+fullbright.TextColor3 = Color3.fromRGB(0, 0, 0)
+fullbright.TextSize = 14.000
+fullbright.MouseButton1Down:Connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/ZdyDttMz",true))()
 end)
