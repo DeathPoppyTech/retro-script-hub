@@ -1,272 +1,168 @@
--- Gui to Lua
--- Version: 3.2
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
--- Instances:
+-- Create the Universal Hub Window
+local Window = OrionLib:MakeWindow({Name = "Retro Script Hub - Revamp 2", HidePremium = false, SaveConfig = true, ConfigFolder = "RetroHub_Config"})
 
-local RetroHubUniversal = Instance.new("ScreenGui")
-local MainFrame = Instance.new("Frame")
-local UICorner = Instance.new("UICorner")
-local TextLabel = Instance.new("TextLabel")
-local TextLabel_2 = Instance.new("TextLabel")
-local TextLabel_3 = Instance.new("TextLabel")
-local iy = Instance.new("TextButton")
-local gamepass = Instance.new("TextButton")
-local dex = Instance.new("TextButton")
-local asset_theft = Instance.new("TextButton")
-local unc = Instance.new("TextButton")
-local spoofuuid = Instance.new("TextButton")
-local hats = Instance.new("TextButton")
-local hitbox_ext = Instance.new("TextButton")
-local hash_hub = Instance.new("TextButton")
-local backdoorexe = Instance.new("TextButton")
-local TrollGUI = Instance.new("TextButton")
-local fullbright = Instance.new("TextButton")
+-- ðŸ› ï¸Main Menu Tab
+local MainMenuTab = Window:MakeTab({
+    Name = "ðŸ› ï¸Main Menu",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
 
---Properties:
+-- ðŸ“œScripts Menu Tab
+local ScriptsTab = Window:MakeTab({
+    Name = "ðŸ“œScripts",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
 
-RetroHubUniversal.Name = "RetroHubUniversal"
-RetroHubUniversal.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-RetroHubUniversal.ResetOnSpawn = false
+-- PlayerðŸ‘¤ Menu Tab
+local PlayerMenuTab = Window:MakeTab({
+    Name = "PlayerðŸ‘¤",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
 
-MainFrame.Name = "MainFrame"
-MainFrame.Parent = RetroHubUniversal
-MainFrame.BackgroundColor3 = Color3.fromRGB(64, 78, 79)
-MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-MainFrame.BorderSizePixel = 0
-MainFrame.Position = UDim2.new(0.3963494, 0, 0.16930382, 0)
-MainFrame.Size = UDim2.new(0, 453, 0, 497)
-MainFrame.Active = true
-MainFrame.Draggable = true
+-- ðŸ§‘â€ðŸ¤â€ðŸ§‘OtherPlayers Menu Tab
+local OtherPlayersTab = Window:MakeTab({
+    Name = "ðŸ§‘â€ðŸ¤â€ðŸ§‘OtherPlayers",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
 
-UICorner.Parent = MainFrame
+-- Untitled Trip Button
+ScriptsTab:AddButton({
+    Name = "Untitled Trip",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/artemy133563/Utilities/main/UntitledTrip", true))()
+        print("Untitled Trip script loaded")
+    end    
+})
 
-TextLabel.Parent = MainFrame
-TextLabel.Active = true
-TextLabel.BackgroundColor3 = Color3.fromRGB(187, 78, 255)
-TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.BorderSizePixel = 0
-TextLabel.Selectable = true
-TextLabel.Size = UDim2.new(0, 453, 0, 20)
-TextLabel.Font = Enum.Font.Michroma
-TextLabel.Text = "Retro Script Hub - Revamp 1, Season 1"
-TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.TextSize = 14.000
+-- PetsGo Button
+ScriptsTab:AddButton({
+    Name = "Pets GO",
+    Callback = function()
+        loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2529a5f9dfddd5523ca4e22f21cceffa.lua"))()
+        print("Pets GO Successful load!")
+    end    
+})
 
-TextLabel_2.Parent = MainFrame
-TextLabel_2.Active = true
-TextLabel_2.BackgroundColor3 = Color3.fromRGB(187, 78, 255)
-TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_2.BorderSizePixel = 0
-TextLabel_2.Position = UDim2.new(0, 0, 0.0402414501, 0)
-TextLabel_2.Selectable = true
-TextLabel_2.Size = UDim2.new(0, 453, 0, 20)
-TextLabel_2.Font = Enum.Font.Michroma
-TextLabel_2.Text = "This script will be moved to a UI library next update. -Made by BiU Team"
-TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_2.TextSize = 14.000
+-- AdminCommand Button
+ScriptsTab:AddButton({
+    Name = "Admin",
+    Callback = function()
+        loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
+        print("Admin script successfully loaded!")
+    end    
+})
 
-TextLabel_3.Parent = MainFrame
-TextLabel_3.Active = true
-TextLabel_3.BackgroundColor3 = Color3.fromRGB(187, 78, 255)
-TextLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_3.BorderSizePixel = 0
-TextLabel_3.Position = UDim2.new(0, 0, 0.95975858, 0)
-TextLabel_3.Selectable = true
-TextLabel_3.Size = UDim2.new(0, 453, 0, 20)
-TextLabel_3.Font = Enum.Font.Michroma
-TextLabel_3.Text = "Never attempt to bypass our key."
-TextLabel_3.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_3.TextSize = 14.000
+-- Speed Changer in PlayerðŸ‘¤ Menu
+PlayerMenuTab:AddTextbox({
+    Name = "Change Player Speed",
+    Default = "Enter Speed",
+    TextDisappear = true,
+    Callback = function(Value)
+        local speed = tonumber(Value)
+        if speed then
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
+            print("Player speed changed to " .. speed)
+        else
+            print("Invalid speed input")
+        end
+    end	  
+})
 
-iy.Name = "iy"
-iy.Parent = MainFrame
-iy.BackgroundColor3 = Color3.fromRGB(170, 85, 0)
-iy.BorderColor3 = Color3.fromRGB(0, 0, 0)
-iy.BorderSizePixel = 0
-iy.Position = UDim2.new(-0.00123916194, 0, 0.117066287, 0)
-iy.Size = UDim2.new(0, 82, 0, 50)
-iy.Font = Enum.Font.Code
-iy.Text = "Inf Yield"
-iy.TextColor3 = Color3.fromRGB(0, 0, 0)
-iy.TextSize = 14.000
-iy.MouseButton1Down:Connect(function()
-	loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
-end)
+-- Jump Changer in PlayerðŸ‘¤ Menu
+PlayerMenuTab:AddTextbox({
+    Name = "Change Jump Power",
+    Default = "Enter Jump Power",
+    TextDisappear = true,
+    Callback = function(Value)
+        local jumpPower = tonumber(Value)
+        if jumpPower then
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = jumpPower
+            print("Player jump power changed to " .. jumpPower)
+        else
+            print("Invalid jump power input")
+        end
+    end	  
+})
 
-gamepass.Name = "gamepass"
-gamepass.Parent = MainFrame
-gamepass.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
-gamepass.BorderColor3 = Color3.fromRGB(0, 0, 0)
-gamepass.BorderSizePixel = 0
-gamepass.Position = UDim2.new(0.230548918, 0, 0.117066287, 0)
-gamepass.Size = UDim2.new(0, 82, 0, 50)
-gamepass.Font = Enum.Font.Code
-gamepass.Text = "Gamepass GUI"
-gamepass.TextColor3 = Color3.fromRGB(0, 0, 0)
-gamepass.TextSize = 14.000
-gamepass.MouseButton1Down:Connect(function()
-	--[[
-	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
-]]
-	loadstring(game:HttpGet("https://gist.githubusercontent.com/dark-modz/6982de484735e730494b2d5a10fd6a2a/raw/a92563b0cd6a63683341a09f54baccea5349ed69/feGamepassV2",true))()
-end)
+-- Teleport To Player in Other Players Menu
+OtherPlayersTab:AddTextbox({
+    Name = "TpTo:",
+    Default = "Enter Username",
+    TextDisappear = true,
+    Callback = function(Value)
+        local targetPlayerName = Value
+        local targetPlayer = game.Players:FindFirstChild(targetPlayerName)
+        if targetPlayer and targetPlayer.Character then
+            -- Teleport the local player to the target player's position
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+            print("Teleported to " .. targetPlayerName)
+        else
+            print("Player not found.")
+        end
+    end
+})
 
-dex.Name = "dex"
-dex.Parent = MainFrame
-dex.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
-dex.BorderColor3 = Color3.fromRGB(0, 0, 0)
-dex.BorderSizePixel = 0
-dex.Position = UDim2.new(0.486619562, 0, 0.117066287, 0)
-dex.Size = UDim2.new(0, 82, 0, 50)
-dex.Font = Enum.Font.Code
-dex.Text = "Dex Explorer"
-dex.TextColor3 = Color3.fromRGB(0, 0, 0)
-dex.TextSize = 14.000
-dex.MouseButton1Down:Connect(function()
-	--[[
-	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
-]]
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/DEX-Explorer/main/Mobile.lua"))()
-end)
+-- Infinite Yields Button in ðŸ› ï¸Main Menu
+MainMenuTab:AddButton({
+    Name = "Infinite Yield",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+        print("Infinite Yield fly activated!")
+    end    
+})
 
-asset_theft.Name = "asset_theft"
-asset_theft.Parent = MainFrame
-asset_theft.BackgroundColor3 = Color3.fromRGB(170, 255, 0)
-asset_theft.BorderColor3 = Color3.fromRGB(0, 0, 0)
-asset_theft.BorderSizePixel = 0
-asset_theft.Position = UDim2.new(0.75814271, 0, 0.117066287, 0)
-asset_theft.Size = UDim2.new(0, 82, 0, 50)
-asset_theft.Font = Enum.Font.Code
-asset_theft.Text = "Save Instance"
-asset_theft.TextColor3 = Color3.fromRGB(0, 0, 0)
-asset_theft.TextSize = 14.000
-asset_theft.MouseButton1Down:Connect(function()
-	--[[
-	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
-]]
-	local Params = {
-		RepoURL = "https://raw.githubusercontent.com/luau/SynSaveInstance/main/",
-		SSI = "saveinstance",
-	}
-	local synsaveinstance = loadstring(game:HttpGet(Params.RepoURL .. Params.SSI .. ".luau", true), Params.SSI)()
-	local Options = {} -- Documentation here https://luau.github.io/UniversalSynSaveInstance/api/SynSaveInstance
-	synsaveinstance(Options)
-end)
+-- BotsSpawnBeta(Doesn'tWorkSometime) Button in ðŸ› ï¸Main Menu
+MainMenuTab:AddButton({
+    Name = "BotsSpawnBeta(Doesn'tWorkSomeTime)",
+    Callback = function()
+        local maxDummies = 10
+        local dummyCount = 0
 
-unc.Name = "unc"
-unc.Parent = MainFrame
-unc.BackgroundColor3 = Color3.fromRGB(85, 0, 127)
-unc.BorderColor3 = Color3.fromRGB(0, 0, 0)
-unc.BorderSizePixel = 0
-unc.Position = UDim2.new(-0.00123916194, 0, 0.274007946, 0)
-unc.Size = UDim2.new(0, 82, 0, 50)
-unc.AutoButtonColor = false
-unc.Font = Enum.Font.Code
-unc.Text = "UNC Tester"
-unc.TextColor3 = Color3.fromRGB(0, 0, 0)
-unc.TextSize = 14.000
-unc.MouseButton1Down:Connect(function()
-	loadstring(game:HttpGet(('https://rawscripts.net/raw/Universal-Script-UNC-Test-13114'),true))()
-end)
+        local function spawnDummy()
+            if dummyCount < maxDummies then
+                -- Create a new dummy model
+                local dummy = Instance.new("Model")
+                dummy.Name = "RetroHubOnTop"
+                
+                -- Create a humanoid for the dummy
+                local humanoid = Instance.new("Humanoid")
+                humanoid.Parent = dummy
+                
+                -- Create a humanoid root part
+                local humanoidRootPart = Instance.new("Part")
+                humanoidRootPart.Size = Vector3.new(2, 5, 1)
+                humanoidRootPart.Anchored = true
+                humanoidRootPart.Position = Vector3.new(math.random(-10, 10), 3, math.random(-10, 10)) -- Random position in a range
+                humanoidRootPart.Parent = dummy
 
-spoofuuid.Name = "spoofuuid"
-spoofuuid.Parent = MainFrame
-spoofuuid.BackgroundColor3 = Color3.fromRGB(255, 0, 127)
-spoofuuid.BorderColor3 = Color3.fromRGB(0, 0, 0)
-spoofuuid.BorderSizePixel = 0
-spoofuuid.Position = UDim2.new(0.230548918, 0, 0.274007946, 0)
-spoofuuid.Size = UDim2.new(0, 82, 0, 50)
-spoofuuid.Font = Enum.Font.Code
-spoofuuid.Text = "UserID Spoof"
-spoofuuid.TextColor3 = Color3.fromRGB(0, 0, 0)
-spoofuuid.TextSize = 14.000
-spoofuuid.MouseButton1Down:Connect(function()
-	game.Players.LocalPlayer.UserId = "1"
-end)
+                -- Set the dummy to the workspace
+                dummy.Parent = game.Workspace
+                dummyCount = dummyCount + 1
+                print("Spawned RetroHubOnTop, total: " .. dummyCount)
+            end
+        end
+        
+        while dummyCount < maxDummies do
+            spawnDummy()
+            wait(5) -- Wait for 5 seconds before spawning the next dummy
+        end
+    end    
+})
 
-hats.Name = "later"
-hats.Parent = MainFrame
-hats.BackgroundColor3 = Color3.fromRGB(255, 194, 140)
-hats.BorderColor3 = Color3.fromRGB(0, 0, 0)
-hats.BorderSizePixel = 0
-hats.Position = UDim2.new(0.486619562, 0, 0.274007946, 0)
-hats.Size = UDim2.new(0, 82, 0, 50)
-hats.Font = Enum.Font.Code
-hats.Text = "Coming Soon!"
-hats.TextColor3 = Color3.fromRGB(0, 0, 0)
-hats.TextSize = 14.000
+-- Unload Hub Button in ðŸ› ï¸Main Menu
+MainMenuTab:AddButton({
+    Name = "Kill Script",
+    Callback = function()
+        print("Goodbye!")
+        OrionLib:Destroy() -- This will destroy the interface
+    end    
+})
 
-hitbox_ext.Name = "hitbox_ext"
-hitbox_ext.Parent = MainFrame
-hitbox_ext.BackgroundColor3 = Color3.fromRGB(255, 24, 124)
-hitbox_ext.BorderColor3 = Color3.fromRGB(0, 0, 0)
-hitbox_ext.BorderSizePixel = 0
-hitbox_ext.Position = UDim2.new(-0.00123916194, 0, 0.434973747, 0)
-hitbox_ext.Size = UDim2.new(0, 82, 0, 50)
-hitbox_ext.Font = Enum.Font.Code
-hitbox_ext.Text = "Hitbox Mods"
-hitbox_ext.TextColor3 = Color3.fromRGB(0, 0, 0)
-hitbox_ext.TextSize = 14.000
-hitbox_ext.MouseButton1Down:Connect(function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/SkepticalScripts/HitboxExpander/main/SScripts.lua.txt"))()
-end)
-
-hash_hub.Name = "hash_hub"
-hash_hub.Parent = MainFrame
-hash_hub.BackgroundColor3 = Color3.fromRGB(255, 24, 124)
-hash_hub.BorderColor3 = Color3.fromRGB(0, 0, 0)
-hash_hub.BorderSizePixel = 0
-hash_hub.Position = UDim2.new(0.230548918, 0, 0.434973747, 0)
-hash_hub.Size = UDim2.new(0, 82, 0, 50)
-hash_hub.Font = Enum.Font.Code
-hash_hub.Text = "Hash Hub"
-hash_hub.TextColor3 = Color3.fromRGB(0, 0, 0)
-hash_hub.TextSize = 14.000
-hash_hub.MouseButton1Down:Connect(function()
-	loadstring(game:HttpGet("https://pastebin.com/raw/i98vcR5s",true))()
-end)
-
-backdoorexe.Name = "backdoor.exe"
-backdoorexe.Parent = MainFrame
-backdoorexe.BackgroundColor3 = Color3.fromRGB(255, 24, 124)
-backdoorexe.BorderColor3 = Color3.fromRGB(0, 0, 0)
-backdoorexe.BorderSizePixel = 0
-backdoorexe.Position = UDim2.new(0.486619562, 0, 0.434973747, 0)
-backdoorexe.Size = UDim2.new(0, 82, 0, 50)
-backdoorexe.Font = Enum.Font.Code
-backdoorexe.Text = "Backdoor.EXE"
-backdoorexe.TextColor3 = Color3.fromRGB(0, 0, 0)
-backdoorexe.TextSize = 14.000
-backdoorexe.MouseButton1Down:Connect(function()
-	loadstring(game:HttpGet("https://pastebin.com/raw/6vHUmanz",true))()
-end)
-
-TrollGUI.Name = "TrollGUI"
-TrollGUI.Parent = MainFrame
-TrollGUI.BackgroundColor3 = Color3.fromRGB(255, 24, 124)
-TrollGUI.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TrollGUI.BorderSizePixel = 0
-TrollGUI.Position = UDim2.new(0.75814271, 0, 0.434973747, 0)
-TrollGUI.Size = UDim2.new(0, 82, 0, 50)
-TrollGUI.Font = Enum.Font.Code
-TrollGUI.Text = "Troll GUI"
-TrollGUI.TextColor3 = Color3.fromRGB(0, 0, 0)
-TrollGUI.TextSize = 14.000
-TrollGUI.MouseButton1Down:Connect(function()
-	loadstring(game:HttpGet("https://pastebin.com/raw/VYZhLv7w",true))()
-end)
-
-fullbright.Name = "fullbright"
-fullbright.Parent = MainFrame
-fullbright.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
-fullbright.BorderColor3 = Color3.fromRGB(0, 0, 0)
-fullbright.BorderSizePixel = 0
-fullbright.Position = UDim2.new(0.75814271, 0, 0.274007946, 0)
-fullbright.Size = UDim2.new(0, 82, 0, 50)
-fullbright.Font = Enum.Font.Code
-fullbright.Text = "Fullbright"
-fullbright.TextColor3 = Color3.fromRGB(0, 0, 0)
-fullbright.TextSize = 14.000
-fullbright.MouseButton1Down:Connect(function()
-	loadstring(game:HttpGet("https://pastebin.com/raw/ZdyDttMz",true))()
-end)
+-- Initialize the Hub
+OrionLib:Init()
