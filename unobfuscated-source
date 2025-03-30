@@ -1,0 +1,321 @@
+-- This file should only be used by developers.
+
+-- New draggable Orion Lib script for hub creations!
+local OrionLib = loadstring(game:HttpGet(('https://pastebin.com/raw/WRUyYTdY')))()
+
+
+local Window = OrionLib:MakeWindow({
+    Name = "Retro Script Hub Revision 4",
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "RetroHub_C0" -- Put the name of your hub or script here!
+})
+
+print("balls (i have loaded)") -- Just a debug
+
+local Tab = Window:MakeTab({
+    Name = "Hub",
+    Icon = "rbxassetid://1",
+    PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+    Name = "Hub"
+})
+
+local playerName = game.Players.LocalPlayer.Name
+
+Tab:AddButton({
+    Name = "Made by BiU Team",
+    Callback = function()
+    end
+})
+
+Tab:AddButton({
+    Name = "Tools Script",
+    Callback = function()
+        loadstring(game:HttpGet(('https://pastebin.com/raw/vE8WMLit'),true))()
+  end    
+})
+
+
+Tab:AddButton({
+    Name = "Nameless Admin",
+    Callback = function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/Source"))();
+end
+})
+
+
+Tab:AddButton({
+    Name = "Infinite Yield",
+    Callback = function()
+       loadstring(game:HttpGet("loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()"))()
+  end    
+})
+
+
+
+Tab:AddButton({
+    Name = "Doors Items Script",
+    Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/kodbolx/kodbolhub/refs/heads/main/KodbolHub%20%3A%20Doors"))()
+  end    
+})
+
+
+
+Tab:AddButton({
+    Name = "Insane Elevator Gui",
+    Callback = function()
+
+       --Made By Zephyr
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Unknownlodfc/Zephyr/main/Zephyr%20%7C%20Insane%20Elevator"))()
+  end    
+})
+
+
+
+Tab:AddButton({
+    Name = "Fly Gui V3",
+    Callback = function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+  end    
+})
+
+
+
+
+Tab:AddButton({
+    Name = "Light Swords",
+    Callback = function()
+
+--grimgold
+_G.grimgold = game:GetObjects('rbxassetid://69499437')[1]
+_G.grimgold.Parent = game.Players.LocalPlayer.Backpack
+_G.grimgold.Equipped:Connect(function()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 75
+local Sound = Instance.new("Sound") 
+local Id = "12222225"
+Sound.Parent = game.Workspace
+Sound.SoundId = "rbxassetid://"..Id
+Sound.Playing = true
+Sound.Looped = false
+Sound.Volume = 5
+end)--grimgold
+_G.grimgold = game:GetObjects('rbxassetid://99119240')[1]
+_G.grimgold.Parent = game.Players.LocalPlayer.Backpack
+_G.grimgold.Equipped:Connect(function()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 75
+local Sound = Instance.new("Sound") 
+local Id = "12222225"
+Sound.Parent = game.Workspace
+Sound.SoundId = "rbxassetid://"..Id
+Sound.Playing = true
+Sound.Looped = false
+Sound.Volume = 5
+end) --grimgold
+_G.grimgold = game:GetObjects('rbxassetid://159229806')[1]
+_G.grimgold.Parent = game.Players.LocalPlayer.Backpack
+_G.grimgold.Equipped:Connect(function()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 75
+local Sound = Instance.new("Sound") 
+local Id = "12222225"
+Sound.Parent = game.Workspace
+Sound.SoundId = "rbxassetid://"..Id
+Sound.Playing = true
+Sound.Looped = false
+Sound.Volume = 5
+end) --grimgold
+_G.grimgold = game:GetObjects('rbxassetid://108158379')[1]
+_G.grimgold.Parent = game.Players.LocalPlayer.Backpack
+_G.grimgold.Equipped:Connect(function()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 75
+local Sound = Instance.new("Sound") 
+local Id = "12222225"
+Sound.Parent = game.Workspace
+Sound.SoundId = "rbxassetid://"..Id
+Sound.Playing = true
+Sound.Looped = false
+Sound.Volume = 5
+end) --grimgold
+_G.grimgold = game:GetObjects('rbxassetid://233520257')[1]
+_G.grimgold.Parent = game.Players.LocalPlayer.Backpack
+_G.grimgold.Equipped:Connect(function()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 75
+local Sound = Instance.new("Sound") 
+local Id = "12222225"
+Sound.Parent = game.Workspace
+Sound.SoundId = "rbxassetid://"..Id
+Sound.Playing = true
+Sound.Looped = false
+Sound.Volume = 5
+end) --grimgold
+_G.grimgold = game:GetObjects('rbxassetid://73829193')[1]
+_G.grimgold.Parent = game.Players.LocalPlayer.Backpack
+_G.grimgold.Equipped:Connect(function()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 75
+local Sound = Instance.new("Sound") 
+local Id = "12222225"
+Sound.Parent = game.Workspace
+Sound.SoundId = "rbxassetid://"..Id
+Sound.Playing = true
+Sound.Looped = false
+Sound.Volume = 5
+end)--grimgold
+_G.grimgold = game:GetObjects('rbxassetid://80661504')[1]
+_G.grimgold.Parent = game.Players.LocalPlayer.Backpack
+_G.grimgold.Equipped:Connect(function()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 75
+local Sound = Instance.new("Sound") 
+local Id = "12222225"
+Sound.Parent = game.Workspace
+Sound.SoundId = "rbxassetid://"..Id
+Sound.Playing = true--grimgold
+_G.grimgold = game:GetObjects('rbxassetid://2544549379')[1]
+_G.grimgold.Parent = game.Players.LocalPlayer.Backpack
+_G.grimgold.Equipped:Connect(function()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 75
+local Sound = Instance.new("Sound") 
+local Id = "12222225"
+Sound.Parent = game.Workspace
+Sound.SoundId = "rbxassetid://"..Id
+Sound.Playing = true
+Sound.Looped = false
+Sound.Volume = 5
+end)
+Sound.Looped = false
+Sound.Volume = 5
+end)--grimgold
+_G.grimgold = game:GetObjects('rbxassetid://139577901')[1]
+_G.grimgold.Parent = game.Players.LocalPlayer.Backpack
+_G.grimgold.Equipped:Connect(function()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 75
+local Sound = Instance.new("Sound") 
+local Id = "12222225"
+Sound.Parent = game.Workspace
+Sound.SoundId = "rbxassetid://"..Id
+Sound.Playing = true
+Sound.Looped = false
+Sound.Volume = 5
+end) --grimgold
+_G.grimgold = game:GetObjects('rbxassetid://93136802')[1]
+_G.grimgold.Parent = game.Players.LocalPlayer.Backpack
+_G.grimgold.Equipped:Connect(function()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 75
+local Sound = Instance.new("Sound") 
+local Id = "12222225"
+Sound.Parent = game.Workspace
+Sound.SoundId = "rbxassetid://"..Id
+Sound.Playing = true
+Sound.Looped = false
+Sound.Volume = 5
+end) --grimgold
+_G.grimgold = game:GetObjects('rbxassetid://120307951')[1]
+_G.grimgold.Parent = game.Players.LocalPlayer.Backpack
+_G.grimgold.Equipped:Connect(function()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 75
+local Sound = Instance.new("Sound") 
+local Id = "12222225"
+Sound.Parent = game.Workspace
+Sound.SoundId = "rbxassetid://"..Id
+Sound.Playing = true
+Sound.Looped = false
+Sound.Volume = 5
+end)
+  end    
+})
+
+
+
+Tab:AddButton({
+    Name = "Snowy Gravity Coil",
+    Callback = function()
+
+--gravity coil
+_G.gravitycoil = game:GetObjects('rbxassetid://186868758')[1]
+_G.gravitycoil.Parent = game.Players.LocalPlayer.Backpack
+_G.gravitycoil.Equipped:Connect(function()
+game.workspace.Gravity = 50
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 75
+local Sound = Instance.new("Sound") 
+local Id = "16619553"
+Sound.Parent = game.Workspace
+Sound.SoundId = "rbxassetid://"..Id
+Sound.Playing = true
+Sound.Looped = false
+Sound.Volume = 2
+end)
+_G.gravitycoil.Unequipped:Connect(function()
+game.workspace.Gravity = 196.2
+end)
+end
+})
+
+
+
+Tab:AddButton({
+    Name = "Dual Gravity Coil",
+    Callback = function()
+--gravity coil
+_G.gravitycoil = game:GetObjects('rbxassetid://150366274')[1]
+_G.gravitycoil.Parent = game.Players.LocalPlayer.Backpack
+_G.gravitycoil.Equipped:Connect(function()
+game.workspace.Gravity = 50
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
+local Sound = Instance.new("Sound") 
+local Id = "16619553"
+Sound.Parent = game.Workspace
+Sound.SoundId = "rbxassetid://"..Id
+Sound.Playing = true
+Sound.Looped = false
+Sound.Volume = 2
+end)
+_G.gravitycoil.Unequipped:Connect(function()
+game.workspace.Gravity = 196.2
+end)
+end
+})
+
+Tab:AddButton({
+    Name = "Prison Life [Tbao Hub]",
+    Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaohubPrisonLife"))()
+  end    
+})
+
+Tab:AddButton({
+    Name = "Infinite Yield",
+    Callback = function()
+		loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+  end    
+})
+
+Tab:AddButton({
+    Name = "[NSFW] Neko Ass",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/ax5EF0yw"))()
+  end    
+})
+
+Tab:AddButton({
+    Name = "Asset Theft [Do not use in Sol's RNG]",
+    Callback = function()
+		local Params = {
+			RepoURL = "https://raw.githubusercontent.com/luau/SynSaveInstance/main/",
+			SSI = "saveinstance",
+		   }
+		   local synsaveinstance = loadstring(game:HttpGet(Params.RepoURL .. Params.SSI .. ".luau", true), Params.SSI)()
+		   local Options = {} -- Documentation here https://luau.github.io/UniversalSynSaveInstance/api/SynSaveInstance
+		   synsaveinstance(Options)
+  end    
+})
+
+Tab:AddButton({
+  Name = "Delta Keyboard CRACK",
+  Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Xxtan31/Ata/main/deltakeyboardcrack.txt", true))()
+end    
+})
