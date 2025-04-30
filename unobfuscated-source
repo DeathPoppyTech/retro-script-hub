@@ -1,208 +1,629 @@
---File only for development use! 
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/jensonhirst/Orion/main/source"))()
+
+local MarketplaceService = game:GetService("MarketplaceService")
+
+local function isValidAsset(id)
+    local success, result = pcall(function()
+        return MarketplaceService:GetProductInfo(tonumber(id))
+    end)
+    return success and result and result.AssetTypeId ~= nil
+end
 
 local Window = OrionLib:MakeWindow({
-    Name = "Retro Script Hub",
-    HidePremium = false,
-    SaveConfig = true,
-    ConfigFolder = "RetroHub",
-    IntroEnabled = true,
-    IntroText = "RETRO HUB BY BIU TEAM",
-    IntroIcon = "rbxassetid://4483345998",
+  Name = "Retro Script Hub v2.0",
+  HidePremium = false,
+  SaveConfig = true,
+  ConfigFolder = "RetroHub_Config",
+  IntroEnabled = true,
+  IntroText = "Retro Hub 2.0",
+  IntroIcon = "rbxassetid://8505336478", -- Replace with your logo if needed
+  Icon = "rbxassetid://8505336478"
+})
+
+
+  local scriptsTab = Window:MakeTab({
+    Name = "Scripts",
     Icon = "rbxassetid://4483345998",
-    CloseCallback = function()
-        print("Closed Retro Script Hub.")
+    PremiumOnly = false
+  })
+  
+  scriptsTab:AddButton({
+    Name = "Infinite Yield",
+    Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
     end
-})
-
--- LocalPlayer Cheats Tab
-local LPCTab = Window:MakeTab({Name = "LocalPlayer Cheats", Icon = "", PremiumOnly = false})
-
-local walkspeed = 16
-local jumppower = 50
-
-LPCTab:AddSlider({
-    Name = "WalkSpeed",
-    Min = 16,
-    Max = 500,
-    Default = 16,
-    Increment = 1,
-    Callback = function(Value)
-        walkspeed = Value
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+  })
+  
+  scriptsTab:AddButton({
+    Name = "Dex Explorer",
+    Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))()
     end
-})
-
-LPCTab:AddSlider({
-    Name = "JumpPower",
-    Min = 50,
-    Max = 500,
-    Default = 50,
-    Increment = 1,
-    Callback = function(Value)
-        jumppower = Value
-        game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+  })
+  
+  scriptsTab:AddButton({
+    Name = "Fly GUI (XNEOFF)",
+    Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
     end
-})
+  })
 
--- Scripts Tab
-local ScriptsTab = Window:MakeTab({Name = "Scripts", Icon = "", PremiumOnly = false})
+  scriptsTab:AddButton({
+    Name = "Mobile Dex",
+    Callback = function()
+      loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Keyless-mobile-dex-17888"))()
+    end
+  })
+  
+  scriptsTab:AddButton({
+    Name = "Wallhop Script",
+    Callback = function()
+      loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Simple-Legit-Wall-Hop-Script-37261", true))()
+    end
+  })
 
-ScriptsTab:AddButton({Name = "Fly GUI", Callback = function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
-end})
-
-ScriptsTab:AddButton({Name = "Mobile Dex", Callback = function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Keyless-mobile-dex-17888"))()
-end})
-
-ScriptsTab:AddButton({Name = "Wallhop Script", Callback = function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Simple-Legit-Wall-Hop-Script-37261", true))()
-end})
-
-ScriptsTab:AddButton({Name = "Asset Theft", Callback = function()
-    local Params = {
+  scriptsTab:AddButton({
+    Name = "Asset Theft (SynSaveInstance)",
+    Callback = function()
+      local Params = {
         RepoURL = "https://raw.githubusercontent.com/luau/SynSaveInstance/main/",
-        SSI = "saveinstance"
-    }
-    local synsaveinstance = loadstring(game:HttpGet(Params.RepoURL .. Params.SSI .. ".luau", true), Params.SSI)()
-    synsaveinstance({})
-end})
+        SSI = "saveinstance",
+      }
+      local synsaveinstance = loadstring(game:HttpGet(Params.RepoURL .. Params.SSI .. ".luau", true), Params.SSI)()
+      local Options = {} -- See docs: https://luau.github.io/UniversalSynSaveInstance/api/SynSaveInstance
+      synsaveinstance(Options)
+    end
+  })
 
-ScriptsTab:AddButton({Name = "20-20-20 Dropkick [R6 Only]", Callback = function()
-    local humanoid = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
-    if humanoid and humanoid.RigType == Enum.HumanoidRigType.R6 then
-        OrionLib:MakeNotification({Name = "R6 Mode", Content = "Walk for the script to work!", Time = 5})
+  scriptsTab:AddButton({
+    Name = "20-20-20 Dropkick [Client side, need R6]",
+    Callback = function()
+      local humanoid = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+      if humanoid and humanoid.RigType == Enum.HumanoidRigType.R6 then
+        OrionLib:MakeNotification({
+          Name = "Dropkick",
+          Content = "Walk for the script to work!",
+          Image = "rbxassetid://4483345998",
+          Time = 5
+        })
         loadstring(game:HttpGet("https://pastebin.com/raw/aCL7FrEH", true))()
-    else
-        OrionLib:MakeNotification({Name = "Error", Content = "Game either doesn't support R6, or you need to switch your avatar to R6", Time = 5})
+      else
+        OrionLib:MakeNotification({
+          Name = "Error",
+          Content = "Game either doesn't support R6, or you need to switch your avatar to R6",
+          Image = "rbxassetid://7733960981",
+          Time = 5
+        })
+      end
     end
-end})
+  })
 
-ScriptsTab:AddButton({Name = "Unlimited Flex [R6 Only]", Callback = function()
-    local humanoid = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
-    if humanoid and humanoid.RigType == Enum.HumanoidRigType.R6 then
+  scriptsTab:AddButton({
+    Name = "Unlimited Flex Works [Need R6, Client side]",
+    Callback = function()
+      local humanoid = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+      if humanoid and humanoid.RigType == Enum.HumanoidRigType.R6 then
+        OrionLib:MakeNotification({
+          Name = "Unlimited Flex Works",
+          Content = "Executing Flex Works script...",
+          Image = "rbxassetid://4483345998",
+          Time = 5
+        })
         loadstring(game:HttpGet("https://pastebin.com/raw/pgbMiAgN", true))()
-    else
-        OrionLib:MakeNotification({Name = "Error", Content = "Game either doesn't support R6, or you need to switch your avatar to R6", Time = 5})
+      else
+        OrionLib:MakeNotification({
+          Name = "Error",
+          Content = "Game either doesn't support R6, or you need to switch your avatar to R6",
+          Image = "rbxassetid://7733960981",
+          Time = 5
+        })
+      end
     end
-end})
+  })
 
-ScriptsTab:AddButton({Name = "Universal Hitbox Extender", Callback = function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/RectangularObject/Roblox-Hitbox-Expander/main/HitboxExtenderv2.lua", true))()
-end})
+  scriptsTab:AddButton({
+    Name = "Universal Hitbox Extender",
+    Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/RectangularObject/Roblox-Hitbox-Expander/main/HitboxExtenderv2.lua", true))()
+    end
+  })
 
--- Useless Scripts Tab
-local UselessTab = Window:MakeTab({Name = "Useless Scripts", Icon = "", PremiumOnly = false})
+  -- Tab: Useless Scripts
+local uselessScriptsTab = Window:MakeTab({
+	Name = "Useless Scripts",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
-UselessTab:AddButton({Name = "Lobotomy [LOUD]", Callback = function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Slendyvn/Dandy-script/refs/heads/main/E"))()
-end})
+uselessScriptsTab:AddButton({
+	Name = "Lobotomy [LOUD]",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Slendyvn/Dandy-script/refs/heads/main/E"))()
+	end
+})
 
-UselessTab:AddTextbox({
-    Name = "Kick Yourself",
-    Default = "You have been kicked!",
-    TextDisappear = false,
-    Callback = function(text)
-        UselessTab:AddButton({Name = "Kick", Callback = function()
-            game.Players.LocalPlayer:Kick(text)
-        end})
+-- Textbox to input the kick message
+uselessScriptsTab:AddTextbox({
+	Name = "Kick Message",
+	Default = "You have been kicked.",
+	Callback = function(kickMessage)
+		-- Store the kick message
+		_G.kickMessage = kickMessage
+	end
+})
+
+-- Button to kick yourself with the message
+uselessScriptsTab:AddButton({
+	Name = "Kick Yourself",
+	Callback = function()
+		-- Kick the player with the message
+		if _G.kickMessage then
+			game.Players.LocalPlayer:Kick(_G.kickMessage)
+		else
+			-- Default message if none is provided
+			game.Players.LocalPlayer:Kick("You have been kicked.")
+		end
+	end
+})
+
+local ClientTab = Window:MakeTab({
+  Name = "Client Sided",
+  Icon = "rbxassetid://4483345998", -- You can change this to any icon
+  PremiumOnly = false
+})
+
+local currentSkyboxId = ""
+
+ClientTab:AddTextbox({
+  Name = "Skybox ID",
+  Default = "",
+  TextDisappear = false,
+  Callback = function(Value)
+      if isValidAsset(Value) then
+          currentSkyboxId = "rbxassetid://" .. Value
+      else
+          OrionLib:MakeNotification({
+              Name = "Skybox Error",
+              Content = "INVALID ID!",
+              Image = "rbxassetid://7733658504",
+              Time = 5
+          })
+      end
+  end
+})
+
+
+ClientTab:AddToggle({
+    Name = "Enable Skybox",
+    Default = false,
+    Callback = function(Value)
+        if Value and currentSkyboxId ~= "" then
+            local Lighting = game:GetService("Lighting")
+            local sky = Lighting:FindFirstChildOfClass("Sky") or Instance.new("Sky", Lighting)
+
+            -- Set all sky faces to the same decal (simple version)
+            sky.SkyboxBk = currentSkyboxId
+            sky.SkyboxDn = currentSkyboxId
+            sky.SkyboxFt = currentSkyboxId
+            sky.SkyboxLf = currentSkyboxId
+            sky.SkyboxRt = currentSkyboxId
+            sky.SkyboxUp = currentSkyboxId
+        end
     end
 })
 
--- Client Sided Tab
-local ClientTab = Window:MakeTab({Name = "Client Sided", Icon = "", PremiumOnly = false})
+local SoundService = game:GetService("SoundService")
+local audio = Instance.new("Sound", SoundService)
+audio.Name = "SarpanchClientAudio"
+audio.Looped = false
+audio.Volume = 1
+audio.Playing = false
 
--- Skybox Changer
+-- Store current ID
+local currentAudioId = ""
+
 ClientTab:AddTextbox({
-    Name = "Skybox ID",
+  Name = "Audio ID",
+  Default = "",
+  TextDisappear = false,
+  Callback = function(Value)
+      if isValidAsset(Value) then
+          currentAudioId = "rbxassetid://" .. Value
+          audio.SoundId = currentAudioId
+      else
+          OrionLib:MakeNotification({
+              Name = "Audio Error",
+              Content = "INVALID ID!",
+              Image = "rbxassetid://7733658504",
+              Time = 5
+          })
+      end
+  end
+})
+
+
+ClientTab:AddButton({
+    Name = "Play Audio",
+    Callback = function()
+        if audio.SoundId ~= "" then
+            audio:Play()
+        end
+    end
+})
+
+ClientTab:AddButton({
+    Name = "Pause Audio",
+    Callback = function()
+        audio:Pause()
+    end
+})
+
+ClientTab:AddButton({
+    Name = "Stop Audio",
+    Callback = function()
+        audio:Stop()
+    end
+})
+
+ClientTab:AddToggle({
+    Name = "Loop Audio",
+    Default = false,
+    Callback = function(Value)
+        audio.Looped = Value
+    end
+})
+
+ClientTab:AddSlider({
+    Name = "Volume",
+    Min = 0,
+    Max = 10,
+    Default = 1,
+    Callback = function(Value)
+        audio.Volume = Value
+    end
+})
+
+ClientTab:AddSlider({
+    Name = "Pitch",
+    Min = 0.5,
+    Max = 2,
+    Increment = 0.05,
+    Default = 1,
+    Callback = function(Value)
+        audio.PlaybackSpeed = Value
+    end
+})
+
+ClientTab:AddButton({
+  Name = "Spawn Dummy",
+  Callback = function()
+      local dummy = Instance.new("Model")
+      dummy.Name = "Dummy"
+
+      -- Head
+      local head = Instance.new("Part")
+      head.Name = "Head"
+      head.Size = Vector3.new(2, 1, 1)
+      head.Anchored = false
+      head.CanCollide = false
+      head.Position = Vector3.new(0, 5, 0)
+      head.Parent = dummy
+
+      -- Body (Torso)
+      local torso = Instance.new("Part")
+      torso.Name = "Torso"
+      torso.Size = Vector3.new(2, 2, 1)
+      torso.Anchored = false
+      torso.CanCollide = false
+      torso.Position = Vector3.new(0, 3, 0)
+      torso.Parent = dummy
+
+      -- Legs
+      local leftLeg = Instance.new("Part")
+      leftLeg.Name = "LeftLeg"
+      leftLeg.Size = Vector3.new(1, 2, 1)
+      leftLeg.Anchored = false
+      leftLeg.CanCollide = false
+      leftLeg.Position = Vector3.new(-0.5, 1, 0)
+      leftLeg.Parent = dummy
+
+      local rightLeg = Instance.new("Part")
+      rightLeg.Name = "RightLeg"
+      rightLeg.Size = Vector3.new(1, 2, 1)
+      rightLeg.Anchored = false
+      rightLeg.CanCollide = false
+      rightLeg.Position = Vector3.new(0.5, 1, 0)
+      rightLeg.Parent = dummy
+
+      -- Arms
+      local leftArm = Instance.new("Part")
+      leftArm.Name = "LeftArm"
+      leftArm.Size = Vector3.new(1, 2, 1)
+      leftArm.Anchored = false
+      leftArm.CanCollide = false
+      leftArm.Position = Vector3.new(-1.5, 4, 0)
+      leftArm.Parent = dummy
+
+      local rightArm = Instance.new("Part")
+      rightArm.Name = "RightArm"
+      rightArm.Size = Vector3.new(1, 2, 1)
+      rightArm.Anchored = false
+      rightArm.CanCollide = false
+      rightArm.Position = Vector3.new(1.5, 4, 0)
+      rightArm.Parent = dummy
+
+      -- Humanoid (for animations and physics)
+      local humanoid = Instance.new("Humanoid")
+      humanoid.Parent = dummy
+
+      -- Parent the dummy to Workspace
+      dummy.Parent = game.Workspace
+  end
+})
+
+local function isValidGearId(id)
+  local success, result = pcall(function()
+      return MarketplaceService:GetProductInfo(tonumber(id))
+  end)
+  return success and result and result.AssetTypeId == 3 -- Gear has AssetTypeId of 3
+end
+
+ClientTab:AddTextbox({
+  Name = "Gear ID",
+  Default = "",
+  TextDisappear = false,
+  Callback = function(Value)
+      local gearId = tonumber(Value)
+      if not gearId then
+          OrionLib:MakeNotification({
+              Name = "Invalid Input",
+              Content = "Please enter a valid Gear ID.",
+              Image = "rbxassetid://7733658504",
+              Time = 5
+          })
+      elseif isValidGearId(gearId) then
+          _G.gearId = "rbxassetid://" .. gearId
+      else
+          OrionLib:MakeNotification({
+              Name = "Gear Error",
+              Content = "INVALID GEAR ID!",
+              Image = "rbxassetid://7733658504",
+              Time = 5
+          })
+      end
+  end
+})
+
+ClientTab:AddButton({
+  Name = "Drop Gear",
+  Callback = function()
+      if _G.gearId then
+          local gear = Instance.new("Tool")
+          gear.Name = "Gear"
+          gear.TextureId = _G.gearId
+          gear.Parent = game.Workspace
+          gear.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0, 5, 0)
+      else
+          OrionLib:MakeNotification({
+              Name = "Gear Error",
+              Content = "Please enter a valid Gear ID first.",
+              Image = "rbxassetid://7733658504",
+              Time = 5
+          })
+      end
+  end
+})
+
+ClientTab:AddButton({
+  Name = "Add to Backpack",
+  Callback = function()
+      if _G.gearId then
+          local gear = Instance.new("Tool")
+          gear.Name = "Gear"
+          gear.TextureId = _G.gearId
+          gear.Parent = game.Players.LocalPlayer.Backpack
+      else
+          OrionLib:MakeNotification({
+              Name = "Gear Error",
+              Content = "Please enter a valid Gear ID first.",
+              Image = "rbxassetid://7733658504",
+              Time = 5
+          })
+      end
+  end
+})
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local fakeStatValue = nil
+local selectedStat = nil
+local originalValues = {}
+
+local function getLeaderStats()
+    local stats = {}
+    local leaderstats = LocalPlayer:FindFirstChild("leaderstats")
+    if leaderstats then
+        for _, stat in pairs(leaderstats:GetChildren()) do
+            if stat:IsA("IntValue") or stat:IsA("NumberValue") or stat:IsA("StringValue") then
+                table.insert(stats, stat.Name)
+                originalValues[stat.Name] = stat.Value
+            end
+        end
+    end
+    return stats
+end
+
+ClientTab:AddDropdown({
+    Name = "Select Leaderstat",
+    Options = getLeaderStats(),
+    Callback = function(Value)
+        selectedStat = Value
+    end
+})
+
+ClientTab:AddTextbox({
+    Name = "Set Value",
     Default = "",
     TextDisappear = false,
-    Callback = function(id)
-        ClientTab:AddButton({Name = "Enable Skybox", Callback = function()
-            local success, err = pcall(function()
-                local sky = Instance.new("Sky", game.Lighting)
-                sky.SkyboxBk = "rbxassetid://" .. id
-                sky.SkyboxDn = "rbxassetid://" .. id
-                sky.SkyboxFt = "rbxassetid://" .. id
-                sky.SkyboxLf = "rbxassetid://" .. id
-                sky.SkyboxRt = "rbxassetid://" .. id
-                sky.SkyboxUp = "rbxassetid://" .. id
-            end)
-            if not success then
-                OrionLib:MakeNotification({Name = "Error", Content = "INVALID ID!", Time = 5})
-            end
-        end})
+    Callback = function(Value)
+        fakeStatValue = Value
     end
 })
 
--- Audio Controls
-local sound = Instance.new("Sound", workspace)
-ClientTab:AddTextbox({Name = "Audio ID", Default = "", TextDisappear = false, Callback = function(id)
-    local success = pcall(function()
-        sound.SoundId = "rbxassetid://" .. id
-    end)
-    if not success then
-        OrionLib:MakeNotification({Name = "Error", Content = "INVALID ID!", Time = 5})
+ClientTab:AddButton({
+    Name = "Apply Fake Stat",
+    Callback = function()
+        if selectedStat and fakeStatValue then
+            local stat = LocalPlayer:FindFirstChild("leaderstats") and LocalPlayer.leaderstats:FindFirstChild(selectedStat)
+            if stat then
+                stat.Value = tonumber(fakeStatValue) or fakeStatValue
+                OrionLib:MakeNotification({
+                    Name = "Success",
+                    Content = selectedStat .. " set to " .. tostring(fakeStatValue),
+                    Time = 3
+                })
+            end
+        end
     end
-end})
-ClientTab:AddButton({Name = "Play Audio", Callback = function() sound:Play() end})
-ClientTab:AddButton({Name = "Stop Audio", Callback = function() sound:Stop() end})
-ClientTab:AddButton({Name = "Pause Audio", Callback = function() sound:Pause() end})
-ClientTab:AddToggle({Name = "Loop Audio", Default = false, Callback = function(val) sound.Looped = val end})
-ClientTab:AddSlider({Name = "Pitch", Min = 0.5, Max = 3, Default = 1, Increment = 0.1, Callback = function(val) sound.PlaybackSpeed = val end})
-ClientTab:AddSlider({Name = "Volume", Min = 0, Max = 10, Default = 1, Increment = 0.1, Callback = function(val) sound.Volume = val end})
+})
 
--- Spawn Dummy
-ClientTab:AddButton({Name = "Spawn Dummy", Callback = function()
-    local dummy = game:GetService("InsertService"):LoadAsset(323311122) -- Dummy model asset ID
-    dummy.Parent = workspace
-end})
-
--- Get Gear
-ClientTab:AddTextbox({Name = "Gear ID", Default = "", TextDisappear = false, Callback = function(id)
-    ClientTab:AddButton({Name = "Drop Gear", Callback = function()
-        pcall(function()
-            local gear = game:GetService("InsertService"):LoadAsset(tonumber(id))
-            gear.Parent = workspace
-        end)
-    end)
-    ClientTab:AddButton({Name = "Add to Backpack", Callback = function()
-        pcall(function()
-            local gear = game:GetService("InsertService"):LoadAsset(tonumber(id))
-            gear:FindFirstChildOfClass("Tool").Parent = game.Players.LocalPlayer.Backpack
-        end)
-    end)
-end})
-
--- Fake Leaderstats
-local lstatsTab = Window:MakeTab({Name = "Fake Leaderstats", Icon = "", PremiumOnly = false})
-local stats = game.Players.LocalPlayer:FindFirstChild("leaderstats")
-if stats then
-    local options = {}
-    for _, stat in pairs(stats:GetChildren()) do
-        table.insert(options, stat.Name)
-    end
-    lstatsTab:AddDropdown({
-        Name = "Choose Stat",
-        Options = options,
-        Callback = function(selected)
-            lstatsTab:AddTextbox({
-                Name = "New Value",
-                Default = "",
-                TextDisappear = false,
-                Callback = function(val)
-                    lstatsTab:AddButton({Name = "Set Stat", Callback = function()
-                        stats[selected].Value = val
-                    end})
-                    lstatsTab:AddButton({Name = "Reset Stat", Callback = function()
-                        stats[selected].Value = 0
-                    end})
+ClientTab:AddButton({
+    Name = "Reset Leaderstats",
+    Callback = function()
+        local leaderstats = LocalPlayer:FindFirstChild("leaderstats")
+        if leaderstats then
+            for statName, value in pairs(originalValues) do
+                local stat = leaderstats:FindFirstChild(statName)
+                if stat then
+                    stat.Value = value
                 end
+            end
+            OrionLib:MakeNotification({
+                Name = "Reset",
+                Content = "Leaderstats have been reset to original values.",
+                Time = 3
             })
         end
-    })
-else
-    lstatsTab:AddParagraph("No leaderstats found.", "This game may not use leaderstats.")
-end
+    end
+})
+
+local ScriptsTab = Window:MakeTab({
+	Name = "Scripting Utilities",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+-- Script 1: UNC Checker
+ScriptsTab:AddButton({
+	Name = "UNC Checker",
+	Callback = function()
+		loadstring(game:HttpGet("https://gitlab.com/sens3/nebunu/-/raw/main/HummingBird8's_sUNC_yes_i_moved_to_gitlab_because_my_github_acc_got_brickedd/sUNCm0m3n7.lua"))()
+	end
+})
+
+-- Script 2: Obfuscator
+ScriptsTab:AddButton({
+	Name = "Obfuscator",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/TypicalScripter2/Obfuscator/refs/heads/main/Main"))()
+	end
+})
+
+-- Script 3: Deobfuscator (Teleports to place + Orion notification)
+ScriptsTab:AddButton({
+	Name = "Deobfuscator (Teleport)",
+	Callback = function()
+		OrionLib:MakeNotification({
+			Name = "Teleporting",
+			Content = "Please wait...",
+			Image = "rbxassetid://4483345998",
+			Time = 5
+		})
+		game:GetService("TeleportService"):Teleport(17250233689)
+	end
+})
+
+local LocalPlayerTab = Window:MakeTab({
+	Name = "LocalPlayer Cheats",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+LocalPlayerTab:AddSlider({
+	Name = "WalkSpeed",
+	Min = 16,
+	Max = 500,
+	Default = 16,
+	Color = Color3.fromRGB(255, 0, 0),
+	Increment = 1,
+	ValueName = "Speed",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end
+})
+
+LocalPlayerTab:AddSlider({
+	Name = "JumpPower",
+	Min = 50,
+	Max = 1000,
+	Default = 50,
+	Color = Color3.fromRGB(0, 255, 0),
+	Increment = 1,
+	ValueName = "Power",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end
+})
+
+LocalPlayerTab:AddButton({
+	Name = "Reset WS/JP",
+	Callback = function()
+		local hum = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+		if hum then
+			hum.WalkSpeed = 16
+			hum.JumpPower = 50
+		end
+	end
+})
+
+local VisualsTab = Window:MakeTab({
+	Name = "Visuals",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+VisualsTab:AddButton({
+	Name = "ESP and Tracers",
+	Callback = function()
+		local HttpService = game:GetService("HttpService")
+		local scriptContent = HttpService:HttpGet("https://raw.githubusercontent.com/User319183/Roblox-ESP-and-Tracers/main/obfuscated.lua")
+		loadstring(scriptContent)()
+	end
+})
+
+VisualsTab:AddToggle({
+	Name = "Fullbright",
+	Default = false,
+	Callback = function(state)
+		if state then
+			game.Lighting.Ambient = Color3.new(1, 1, 1)
+			game.Lighting.Brightness = 10
+			game.Lighting.GlobalShadows = false
+		else
+			game.Lighting.Ambient = Color3.new(0.5, 0.5, 0.5)
+			game.Lighting.Brightness = 2
+			game.Lighting.GlobalShadows = true
+		end
+	end
+})
+
+VisualsTab:AddButton({
+	Name = "Shaders (RTX-like)",
+	Callback = function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/zbzEhK9U"))()
+	end
+})
+
+OrionLib:Init()
